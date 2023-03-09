@@ -8,7 +8,9 @@
     "serve": "sirv build --port 8080 --cors --single",
     "dev": "preact watch",
     "lint": "eslint src",
-    "test": "jest"
+    "test": "jest",
+    "ionic:build": "npm run build",
+    "ionic:serve": "npm run serve"
   },
   "eslintConfig": {
     "extends": "preact",
@@ -27,6 +29,10 @@
     "sirv-cli": "^2.0.2"
   },
   "dependencies": {
+    "@capacitor/android": "^4.7.0",
+    "@capacitor/cli": "^4.7.0",
+    "@capacitor/core": "^4.7.0",
+    "@capacitor/ios": "^4.7.0",
     "preact": "^10.11.3",
     "preact-render-to-string": "^5.2.6",
     "preact-router": "^3.2.1"
