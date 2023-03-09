@@ -7,7 +7,7 @@ const Home = () => {
 			<a href="https://preactjs.com">
 				<img src="../../assets/preact-logo.svg" alt="Preact Logo" height="160" width="160" />
 			</a>
-			<h1>Hello World</h1>
+			<h1>Hello World????</h1>
 			<section>
 				<Resource
 					title="Learn Preact"
