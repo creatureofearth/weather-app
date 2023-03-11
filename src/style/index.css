@@ -1,13 +1,18 @@
-:root {
-	font-family: 'Helvetica Neue', arial, sans-serif;
-	font-weight: 400;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+@font-face {
+	font-family: "Open Sans"; 
+	src: local("OpenSansRegular"),
+	  url("../font/OpenSans-Regular.ttf") format("truetype");
+	font-weight: normal;
+  }
 
-	color-scheme: light dark;
-	color: #444;
-	background: #fafafa;
+@font-face {
+	font-family: "Open Sans"; 
+	src: local("OpenSansWeighted"),
+		url("../font/OpenSans-SemiBold.ttf") format("truetype");
+	font-weight: bold;
 }
+  
+  
 
 @media (prefers-color-scheme: dark) {
 	:root {
@@ -17,9 +22,12 @@
 }
 
 body {
+	font-family: 'Open Sans';
+	font-weight: normal;
 	margin: 0;
 	padding: 0;
 	min-height: 100vh;
+	background-color: #1C1B1F;
 }
 
 #app > main {
@@ -36,4 +44,8 @@ body {
 	#app > main {
 		margin: 0 2rem;
 	}
+}
+
+a {
+	text-decoration: none;
 }

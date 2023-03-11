@@ -1,22 +1,23 @@
 import { h } from 'preact';
 import { Router } from 'preact-router';
 
-import Header from './header';
+import Navbar from './navbar';
 
 // Code-splitting is automated for `routes` directory
 import Home from '../routes/home';
-import Profile from '../routes/profile';
+import Map from '../routes/map';
+import Bookmarks from '../routes/bookmarks';
 
 const App = () => (
 	<div id="app">
-		<Header />
 		<main>
 			<Router>
 				<Home path="/" />
-				<Profile path="/profile/" user="me" />
-				<Profile path="/profile/:user" />
+				<Map path="/map/" />
+				<Bookmarks path="/bookmarks/" />
 			</Router>
 		</main>
+		<Navbar/>
 	</div>
 );
 
