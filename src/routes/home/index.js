@@ -2,40 +2,27 @@ import { h } from 'preact';
 import style from './style.css';
 
 const Home = () => {
-	return (
-		<div class={style.home}>
-			<a href="https://preactjs.com">
-				<img src="../../assets/preact-logo.svg" alt="Preact Logo" height="160" width="160" />
-			</a>
-			<h1>Hello?!</h1>
-			<h2>World!</h2>
-			<section>
-				<Resource
-					title="Learn Preact!"
-					description="If you're new to Preact, try the interactive tutorial to learn important concepts"
-					link="https://preactjs.com/tutorial/"
-				/>
-				<Resource
-					title="Differences to React"
-					description="If you're coming from React, check out our docs for where Preact differs"
-					link="https://preactjs.com/guide/v10/differences-to-react"
-				/>
-				<Resource
-					title="Learn Preact-CLI"
-					description="To learn more about Preact-CLI, read through the ReadMe & Wiki"
-					link="https://github.com/preactjs/preact-cli#preact-cli--"
-				/>
-			</section>
-		</div>
-	);
-};
+	// TODO: API
 
-const Resource = props => {
 	return (
-		<a href={props.link} class={style.resource}>
-			<h2>{props.title}</h2>
-			<p>{props.description}</p>
-		</a>
+		<main>
+			<div class={style.main}>
+				<div class={style.content}>
+					<div class={style.weather}>
+						<div class={style.muted}>Currently</div>
+						<div class={style.textmain}>23°c</div>
+						<div class={style.muted}>Sunny</div>
+					</div>
+					<div class={style.weather}>
+						<img class={style.icon} src="https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1"></img>
+					</div>
+				</div>
+			</div>
+
+			<div>
+			{/* TODO: weather detail components */}
+			</div>
+		</main>
 	);
 };
 

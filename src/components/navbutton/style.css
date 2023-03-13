@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding: 0.5em;
     width: 3em;
+    padding: 5px;
     align-items: center;
 }
 
@@ -32,9 +32,9 @@
     background-color: #4A4458;
     width: 100%;
     border-radius: 1em;
-    padding: 0.5em;
+    padding: 5px;
 }
 
 .iconbg {
-    padding: 0.5em;
+    padding: 5px;
 }
