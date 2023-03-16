@@ -12,6 +12,11 @@
 import { h } from 'preact';
 import style from './style.css';
 import { useEffect, useState } from 'preact/hooks';
+import Clock from '../clock';
+
+
+
+
 
 const Home = () => {
 	// Persistent state for the component (https://www.youtube.com/watch?v=O6P86uwfdR0)
@@ -40,7 +45,7 @@ const Home = () => {
 		<main>
 			<div class={style.main}>
 				<div class={style.content}>
-
+					
 					{/* Primary details about weather */}
 					<div class={style.weather}>
 
@@ -68,16 +73,22 @@ const Home = () => {
 					</div>
 					<div class={style.weather}>
 						<img class={style.icon} src="https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1"></img>
+						<Clock/>
 					</div>
+					
 				</div>
 			</div>
-
-			{/* Secondary details about current weather */}
+				<div className='Content'>
+					<div></div>
+					{/* Secondary details about current weather */}
+				</div>
 			<div>
 				{/* TODO: weather detail components */}
 			</div>
 		</main>
 	);
 };
+
+
 
 export default Home;

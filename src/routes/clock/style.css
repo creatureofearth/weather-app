@@ -1,0 +1,10 @@
+.clock{
+    cursor:pointer;
+    display: block;
+    width:20px;
+    color: rgb(252, 250, 250);
+    text-align:center;
+    position:relative;
+    font-size: xx-large;
+    margin-top: 2rem;
+}

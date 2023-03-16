@@ -41,8 +41,3 @@
 	width: 100px;
 	filter: brightness(0) saturate(100%) invert(71%) sepia(68%) saturate(72%) hue-rotate(217deg) brightness(111%) contrast(95%);
 }
-
-.error {
-	background-color: red;
-	color: yellow
-}
