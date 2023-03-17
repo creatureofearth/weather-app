@@ -1,27 +1,22 @@
-import { h, render, Component } from 'preact';
 import style from './style.css';
+import {useState} from 'preact/hooks';
 
-class Clock extends Component {
-  state = { time: Date.now() };
+const Clock  = () => {
+  let currentTime = new Date().toLocaleTimeString();
+  const[updatedTime,setUpdatedTime ]=useState(currentTime);
 
-  // Called whenever our component is created
-  componentDidMount() {
-    // update time every second
-    this.timer = setInterval(() => {
-      this.setState({ time: Date.now() });
-    }, 1000);
+  const Time = () =>{
+    let currentTime = new Date().toLocaleTimeString();
+    setUpdatedTime(currentTime)
   }
+  
+  setInterval(Time, 1000);
 
-  // Called just before our component will be destroyed
-  componentWillUnmount() {
-    // stop when not renderable
-    clearInterval(this.timer);
-  }
+   
+  return( <div class= {style.clock}>
+   {updatedTime}
+  </div>
+  );
 
-  render() {
-    let time = new Date(this.state.time).toLocaleTimeString();
-    return <span class={style.clock}>{time}</span>;
-  }
-}
-
+};
 export default Clock;
