@@ -1,9 +1,12 @@
 .navbar {
     width: auto;
-    background-color: rgb(43, 40, 49);
-
+    background-color: rgb(43, 40, 49)
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    
+
+    /* forces the navbar to override the map */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
