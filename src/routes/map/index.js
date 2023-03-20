@@ -27,7 +27,7 @@ const Map = () => {
   return (
     <div>
       <div ref={mapRef} // reference to the DOM element 
-  style={{ position: 'absolute', top: 0, bottom: 0, width: '100%' }} // style the map container
+      style={{ position: 'absolute', top: 0, bottom: 50, width: '100%' }} // style the map container
    />
     </div>
   );
