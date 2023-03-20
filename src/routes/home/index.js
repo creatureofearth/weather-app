@@ -29,7 +29,7 @@ const Home = () => {
 		(https://www.youtube.com/watch?v=0ZJgIjIuY7U)
 	*/
 	useEffect(() => {
-		const weatherPromise = fetch('');	
+		const weatherPromise = fetch('http://api.weatherstack.com/current?access_key=30eadd44b9b067b63928a92f36ceae96&query=London');	
 
 		weatherPromise.then((res) => {
 			if (!res.ok) {
