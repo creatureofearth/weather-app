@@ -1,14 +1,14 @@
 @font-face {
-	font-family: "Gilroy"; 
-	src: local("GilroyRegular"),
-	  url("../font/Gilroy-Regular.ttf") format("truetype");
+	font-family: "Open Sans"; 
+	src: local("OpenSansRegular"),
+	  url("../font/OpenSans-Regular.ttf") format("truetype");
 	font-weight: normal;
   }
 
 @font-face {
-	font-family: "Gilroy"; 
-	src: local("GilroySemibold"),
-		url("../font/Gilroy-SemiBold.ttf") format("truetype");
+	font-family: "Open Sans"; 
+	src: local("OpenSansSemibold"),
+		url("../font/OpenSans-SemiBold.ttf") format("truetype");
 	font-weight: bold;
 }
   
@@ -22,7 +22,7 @@
 }
 
 body {
-	font-family: 'Gilroy';
+	font-family: 'Open Sans';
 	font-weight: normal;
 	margin: 0;
 	padding: 0;

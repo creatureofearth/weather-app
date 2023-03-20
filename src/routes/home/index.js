@@ -14,10 +14,6 @@ import style from './style.css';
 import { useEffect, useState } from 'preact/hooks';
 import Clock from '../clock';
 
-
-
-
-
 const Home = () => {
 	// Persistent state for the component (https://www.youtube.com/watch?v=O6P86uwfdR0)
 	const [weather, setWeather] = useState({});
