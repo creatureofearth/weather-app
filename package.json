@@ -33,6 +33,7 @@
     "@capacitor/cli": "^4.7.0",
     "@capacitor/core": "^4.7.0",
     "@capacitor/ios": "^4.7.0",
+    "@react-spring/web": "^9.7.1",
     "mapbox-gl": "^1.13.3",
     "preact": "^10.11.3",
     "preact-render-to-string": "^5.2.6",

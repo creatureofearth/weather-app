@@ -33,8 +33,22 @@
     width: 100%;
     border-radius: 1em;
     padding: 5px;
+    display: flex;
+    justify-content: center;
+    animation-duration: 0.2s;
+    animation-name: button-icon;
 }
 
 .iconbg {
     padding: 5px;
 }
+
+@keyframes button-icon {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
