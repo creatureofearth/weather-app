@@ -27,8 +27,6 @@ const Home = () => {
 		(https://www.youtube.com/watch?v=0ZJgIjIuY7U)
 	*/
 
-	// PLACEHOLDER WEATHER TEXT FOR TESTING
-
 	// useEffect(() => {
 	// 	const weatherPromise = fetch('');	
 
