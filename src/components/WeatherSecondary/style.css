@@ -31,3 +31,8 @@
     justify-content: center;
     color: #a495af;
 }
+
+.icon {
+    width: 1em;
+    filter: invert(85%) sepia(6%) saturate(295%) hue-rotate(227deg) brightness(94%) contrast(89%)
+}

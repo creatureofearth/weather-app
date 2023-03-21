@@ -42,6 +42,8 @@ const Home = () => {
 	// 	.catch((err) => setError(true));
 	// }, []);
 
+
+
 	return (
 		<main>
 			<div class={style.main}>
@@ -81,9 +83,9 @@ const Home = () => {
 			</div >
 
 			<div class={style.secondary}>
-				<WeatherSecondary title="UVI" data="5" tagline="Normal" />
-				<WeatherSecondary title="Wind" data="4 mph" tagline="-" />
-				<WeatherSecondary title="Visibility" data="85%" tagline="It's clear" />
+				<WeatherSecondary title="UVI" data="5" tagline="Normal" icon="https://www.dropbox.com/s/1mw0k0cphwomu8k/uv-index-filled-svgrepo-com.svg?raw=1" />
+				<WeatherSecondary title="Wind" data="4 mph" tagline="-" icon="https://www.dropbox.com/s/ba8u2fvpirqnqgw/wind-03-svgrepo-com.svg?raw=1" />
+				<WeatherSecondary title="Visibility" data="85%" tagline="It's clear" icon="https://www.dropbox.com/s/vzn863txa01fe3u/visibility-svgrepo-com.svg?raw=1" />
 			</div>
 		</main>
 	);

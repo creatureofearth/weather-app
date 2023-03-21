@@ -5,7 +5,7 @@ import style from './style.css';
 const WeatherSecondary = (props) => (
     <div class={style.container}>
         <div class={style.titleContainer}>
-            <img src="#" />
+            <img class={style.icon} src={props.icon} />
             <div>{props.title}</div>
         </div>
         <div class={style.statContainer}>
