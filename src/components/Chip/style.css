@@ -1,0 +1,10 @@
+.chip {
+    outline: 1px solid #CAC4D0;
+    border-radius: 1em;
+    padding: 0.75em;
+    color: #E6E1E5;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    width: min-content;
+}

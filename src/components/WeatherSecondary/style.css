@@ -1,0 +1,33 @@
+.container {
+    background-color: purple;
+    border-radius: 1em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    aspect-ratio: 1/1;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 7px;
+    font-size: 1em;
+    color: #CAC4D0;
+}
+
+.statContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 1.5em;
+    color: #E6E1E5;
+}
+
+.tagContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #a495af;
+}

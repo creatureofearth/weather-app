@@ -12,7 +12,9 @@
 import { h } from 'preact';
 import style from './style.css';
 import { useEffect, useState } from 'preact/hooks';
-import Clock from '../clock';
+import Clock from '../../components/clock';
+import WeatherSecondary from '../../components/WeatherSecondary';
+import Chip from '../../components/Chip';
 
 const Home = () => {
 	// Persistent state for the component (https://www.youtube.com/watch?v=O6P86uwfdR0)
@@ -24,18 +26,21 @@ const Home = () => {
 		by the request - network requests may take some time to respond 
 		(https://www.youtube.com/watch?v=0ZJgIjIuY7U)
 	*/
-	useEffect(() => {
-		const weatherPromise = fetch('http://api.weatherstack.com/current?access_key=30eadd44b9b067b63928a92f36ceae96&query=London');	
 
-		weatherPromise.then((res) => {
-			if (!res.ok) {
-				throw new Error("HTTP Error")
-			}
-			return res.json();
-		})
-		.then((data) => setWeather(data))
-		.catch((err) => setError(true));
-	}, []);
+	// PLACEHOLDER WEATHER TEXT FOR TESTING
+
+	// useEffect(() => {
+	// 	const weatherPromise = fetch('');	
+
+	// 	weatherPromise.then((res) => {
+	// 		if (!res.ok) {
+	// 			throw new Error("HTTP Error")
+	// 		}
+	// 		return res.json();
+	// 	})
+	// 	.then((data) => setWeather(data))
+	// 	.catch((err) => setError(true));
+	// }, []);
 
 	return (
 		<main>
@@ -43,8 +48,7 @@ const Home = () => {
 				<div class={style.content}>
 					
 					{/* Primary details about weather */}
-					<div class={style.weather}>
-
+					<div class={style.weatherLeft}>
 						{/* Tenary operator is used here for conditional rendering (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) */}
 						{error ? 
 
@@ -59,27 +63,27 @@ const Home = () => {
 							<div class={style.textmain}>
 
 								{/* Checks if `weather` variable isn't null before indexing it */}
-								{weather && weather['current'] && weather['current']['temperature']}°C
+								{weather && weather['current'] && weather['current']['temperature']}12°C
 							</div>
 							<div class={style.muted}>
 								{weather && weather['current'] && weather['current']['weather_descriptions']}
+								Overcast
 							</div>
 						</>
 						}
 					</div>
-					<div class={style.weather}>
+					<div class={style.weatherRight}>
 						<img class={style.icon} src="https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1"></img>
-						<Clock/>
+						<Chip text={<Clock />} />
 					</div>
 					
 				</div>
-			</div>
-				<div className='Content'>
-					<div></div>
-					{/* Secondary details about current weather */}
-				</div>
-			<div>
-				{/* TODO: weather detail components */}
+			</div >
+
+			<div class={style.secondary}>
+				<WeatherSecondary title="UVI" data="5" tagline="Normal" />
+				<WeatherSecondary title="Wind" data="4 mph" tagline="-" />
+				<WeatherSecondary title="Visibility" data="85%" tagline="It's clear" />
 			</div>
 		</main>
 	);

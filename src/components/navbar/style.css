@@ -8,5 +8,5 @@
     /* forces the navbar to override the map */
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 450px;
 }
