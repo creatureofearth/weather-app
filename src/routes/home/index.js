@@ -10,7 +10,7 @@
 	http://api.weatherstack.com/current?access_key=30eadd44b9b067b63928a92f36ceae96&query=London
 	
 	mujeeba's api key:
-	http://api.weatherstack.com/current?access_key=f8e9137245822ce24c9541817f569811&query=London
+	http://api.weatherstack.com/current?access_key=d429be32eba4f443a5cd38ceaad625e4&query=London
 */
 
 import { h } from 'preact';
