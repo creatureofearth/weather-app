@@ -6,7 +6,11 @@
 	For testing purposes, the API call is removed from the code
 	to prevent execeeding the monthly limit on calls.
 
+	d's api key:
 	http://api.weatherstack.com/current?access_key=30eadd44b9b067b63928a92f36ceae96&query=London
+	
+	mujeeba's api key:
+	http://api.weatherstack.com/current?access_key=f8e9137245822ce24c9541817f569811&query=London
 */
 
 import { h } from 'preact';
@@ -27,18 +31,18 @@ const Home = () => {
 		(https://www.youtube.com/watch?v=0ZJgIjIuY7U)
 	*/
 
-	// useEffect(() => {
-	// 	const weatherPromise = fetch('');	
+	useEffect(() => {
+		const weatherPromise = fetch('http://api.weatherstack.com/current?access_key=f8e9137245822ce24c9541817f569811&query=London&hourly=1');	
 
-	// 	weatherPromise.then((res) => {
-	// 		if (!res.ok) {
-	// 			throw new Error("HTTP Error")
-	// 		}
-	// 		return res.json();
-	// 	})
-	// 	.then((data) => setWeather(data))
-	// 	.catch((err) => setError(true));
-	// }, []);
+		weatherPromise.then((res) => {
+			if (!res.ok) {
+				throw new Error("HTTP Error")
+			}
+			return res.json();
+		})
+		.then((data) => setWeather(data))
+		.catch((err) => setError(true));
+	}, []);
 
 
 
@@ -63,11 +67,17 @@ const Home = () => {
 							<div class={style.textmain}>
 
 								{/* Checks if `weather` variable isn't null before indexing it */}
-								{weather && weather['current'] && weather['current']['temperature']}12°C
+								{weather && weather['current'] && weather['current']['temperature']}°C
+								{/* 12°C */}
 							</div>
+
+							<div class={style.muted}> 
+								Feels like {weather && weather['current'] && weather['current']['feelslike']}°
+							</div>
+
 							<div class={style.muted}>
 								{weather && weather['current'] && weather['current']['weather_descriptions']}
-								Overcast
+								{/* Overcast */}
 							</div>
 						</>
 						}
@@ -81,9 +91,18 @@ const Home = () => {
 			</div >
 
 			<div class={style.secondary}>
-				<WeatherSecondary title="UVI" data="5" tagline="Normal" icon="https://www.dropbox.com/s/1mw0k0cphwomu8k/uv-index-filled-svgrepo-com.svg?raw=1" />
-				<WeatherSecondary title="Wind" data="4 mph" tagline="-" icon="https://www.dropbox.com/s/ba8u2fvpirqnqgw/wind-03-svgrepo-com.svg?raw=1" />
-				<WeatherSecondary title="Visibility" data="85%" tagline="It's clear" icon="https://www.dropbox.com/s/vzn863txa01fe3u/visibility-svgrepo-com.svg?raw=1" />
+				<WeatherSecondary title="UVI" 
+					data={weather && weather['current'] && weather['current']['uv_index']} 
+					tagline="Normal" 
+					icon="https://www.dropbox.com/s/1mw0k0cphwomu8k/uv-index-filled-svgrepo-com.svg?raw=1" />
+				<WeatherSecondary title="Wind" 
+					data={weather && weather['current'] && weather['current']['wind_speed'] + " " + weather['current']['wind_dir']}  
+					tagline="-" 
+					icon="https://www.dropbox.com/s/ba8u2fvpirqnqgw/wind-03-svgrepo-com.svg?raw=1" />
+				<WeatherSecondary title="Visibility" 
+					data={weather && weather['current'] && weather['current']['visibility'] + " km"}
+					tagline="It's clear"
+					icon="https://www.dropbox.com/s/vzn863txa01fe3u/visibility-svgrepo-com.svg?raw=1" />
 			</div>
 		</main>
 	);
