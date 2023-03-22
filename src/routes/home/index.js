@@ -32,7 +32,7 @@ const Home = () => {
 	*/
 
 	useEffect(() => {
-		const weatherPromise = fetch('http://api.weatherstack.com/current?access_key=f8e9137245822ce24c9541817f569811&query=London&hourly=1');	
+		const weatherPromise = fetch('');	
 
 		weatherPromise.then((res) => {
 			if (!res.ok) {
@@ -43,7 +43,6 @@ const Home = () => {
 		.then((data) => setWeather(data))
 		.catch((err) => setError(true));
 	}, []);
-
 
 
 	return (
@@ -92,16 +91,27 @@ const Home = () => {
 
 			<div class={style.secondary}>
 				<WeatherSecondary title="UVI" 
-					data={weather && weather['current'] && weather['current']['uv_index']} 
-					tagline="Normal" 
+					data={weather && weather['current'] && weather['current']['uv_index']}  // adds current uv index
+					tagline={ //comments on uv index based on Global Solar UV Index (https://www.epa.gov/sunsafety/uv-index-scale-0)
+						weather && weather['current'] && weather['current']['uv_index'] >= 11 ? "Extreme" :
+						weather && weather['current'] && weather['current']['uv_index'] >= 8 ? "Very High" :
+						weather && weather['current'] && weather['current']['uv_index'] >= 6 ? "High" :
+						"Low"
+					  }
 					icon="https://www.dropbox.com/s/1mw0k0cphwomu8k/uv-index-filled-svgrepo-com.svg?raw=1" />
 				<WeatherSecondary title="Wind" 
-					data={weather && weather['current'] && weather['current']['wind_speed'] + " " + weather['current']['wind_dir']}  
-					tagline="-" 
+					data={weather && weather['current'] && weather['current']['wind_speed'] + " " + weather['current']['wind_dir']}  // adds wind speed in km/h and direction together
+					tagline={ //comment wind descriptions if wind speed is greater than a certain num, based on Beaufort scale (https://en.wikipedia.org/wiki/Beaufort_scale)
+						weather && weather['current'] &&
+						weather['current']['wind_speed'] > 0 ? 
+						  (weather['current']['wind_speed'] <= 5 ? "Light breeze" :
+						  weather['current']['wind_speed'] <= 29 ? "Moderate wind" :
+						  "Strong wind") :
+						"-" } 
 					icon="https://www.dropbox.com/s/ba8u2fvpirqnqgw/wind-03-svgrepo-com.svg?raw=1" />
 				<WeatherSecondary title="Visibility" 
 					data={weather && weather['current'] && weather['current']['visibility'] + " km"}
-					tagline="It's clear"
+					tagline={weather && weather['current'] && weather['current']['visibility'] > 5 ? "Clear" : "Poor Visibility"} //ternary operator to see if visibility is greater than 5km
 					icon="https://www.dropbox.com/s/vzn863txa01fe3u/visibility-svgrepo-com.svg?raw=1" />
 			</div>
 		</main>
