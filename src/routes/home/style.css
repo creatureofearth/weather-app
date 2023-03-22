@@ -64,3 +64,33 @@
 	background-color: red;
 	color: yellow;
 }
+
+.sunny {
+	background: linear-gradient(to right, #FFDAB9 0%, #FFFF00 100%);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.cloudy {
+	background: linear-gradient(to right, #5394ea 0%, #779dcd 100%);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.rainy {
+	background: linear-gradient(to right, #1e3c72 0%, #2a5298 100%);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.snowy {
+	background: linear-gradient(to right, #bdc3c7 0%, #2c3e50 100%);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.thunderstorm {
+	background: linear-gradient(to right, #1e3c72 0%, #2a5298 100%);
+	background-repeat: no-repeat;
+	background-size: cover;
+}

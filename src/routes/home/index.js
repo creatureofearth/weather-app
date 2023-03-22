@@ -11,6 +11,7 @@
 	
 	mujeeba's api key:
 	http://api.weatherstack.com/current?access_key=d429be32eba4f443a5cd38ceaad625e4&query=London
+
 */
 
 import { h } from 'preact';
@@ -44,50 +45,73 @@ const Home = () => {
 		.catch((err) => setError(true));
 	}, []);
 
+	function getStyleClass(weather) {
+		const weatherDescriptions = weather?.current?.weather_descriptions;
+		if (weatherDescriptions) {
+		  if (weatherDescriptions.includes("Clear")) { // if weather description includes "Clear" (e.g. "Clear Sky")
+			return style.sunny;
+		  } 
+		  else if (weatherDescriptions.includes("Cloudy") || weatherDescriptions.includes("Overcast")) { // if weather description includes "Cloudy" or "Overcast"
+			return style.cloudy;
+		  } 
+		  else if (weatherDescriptions.some(desc => desc.includes("Rain"))) { // if weather description includes "Rain" (e.g. "Light Rain")
+			return style.rainy;
+		  }
+		  else if (weatherDescriptions.some(desc => desc.includes("Snow"))) { // if weather description includes "Snow" (e.g. "Light Snow")
+			return style.snowy;
+		  } 
+		  else if (weatherDescriptions.includes("Thunderstorm")) { // if weather description includes "Thunderstorm"
+			return style.thunderstorm;
+		  }
+		}
+		return '';
+	}
+	  
 
-	return (
-		<main>
-			<div class={style.main}>
-				<div class={style.content}>
-					
-					{/* Primary details about weather */}
-					<div class={style.weatherLeft}>
-						{/* Tenary operator is used here for conditional rendering (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) */}
-						{error ? 
+		return (
+			<main>
+				<div class={`${style.main} ${getStyleClass(weather)}`}>
+					<div class={style.content}>
+						
+						{/* Primary details about weather */}
+						<div class={style.weatherLeft}>
+							{/* Tenary operator is used here for conditional rendering (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) */}
+							{error ? 
 
-						// Display an error message if state variable `error` is true
-						<div class={style.error}>
-							Error fetching data
-						</div> 
+							// Display an error message if state variable `error` is true
+							<div class={style.error}>
+								Error fetching data
+							</div> 
 
-						// Display main content if state variable `error` is false (successful fetch)
-						: <>
-							<div class={style.muted}>Currently</div>
-							<div class={style.textmain}>
+							// Display main content if state variable `error` is false (successful fetch)
+							: <>
+								<div class={style.muted}>Currently</div>
+								<div class={style.textmain}>
 
-								{/* Checks if `weather` variable isn't null before indexing it */}
-								{weather && weather['current'] && weather['current']['temperature']}°C
-								{/* 12°C */}
-							</div>
+									{/* Checks if `weather` variable isn't null before indexing it */}
+									{weather && weather['current'] && weather['current']['temperature']}°C
+									{/* 12°C */}
+								</div>
 
-							<div class={style.muted}> 
-								Feels like {weather && weather['current'] && weather['current']['feelslike']}°
-							</div>
+								<div class={style.muted}> 
+									Feels like {weather && weather['current'] && weather['current']['feelslike']}°
+								</div>
 
-							<div class={style.muted}>
-								{weather && weather['current'] && weather['current']['weather_descriptions']}
-								{/* Overcast */}
-							</div>
-						</>
-						}
+								<div class={style.muted}>
+									{weather && weather['current'] && weather['current']['weather_descriptions']}
+									{/* Overcast */}
+								</div>
+							</>
+							}
+						</div>
+						<div class={style.weatherRight}>
+							<img class={style.icon} src="https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1"></img>
+							<Chip text={<Clock />} />
+						</div>
+						
 					</div>
-					<div class={style.weatherRight}>
-						<img class={style.icon} src="https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1"></img>
-						<Chip text={<Clock />} />
-					</div>
-					
-				</div>
-			</div >
+				</div >	
+
 
 			<div class={style.secondary}>
 				<WeatherSecondary title="UVI" 
@@ -117,7 +141,6 @@ const Home = () => {
 		</main>
 	);
 };
-
 
 
 export default Home;
