@@ -1,0 +1,25 @@
+.container {
+    background-color: rgb(43, 40, 49);
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em;
+    color: #CAC4D0;
+    border-radius: 1em;
+}
+
+.day {
+    font-weight: bold;
+}
+
+.icon {
+    width: 1em;
+    filter: invert(91%) sepia(19%) saturate(148%) hue-rotate(219deg) brightness(86%) contrast(87%);
+}
+
+.weather {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

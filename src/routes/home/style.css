@@ -7,7 +7,7 @@
 	border-radius: 0.75em;
 	display: flex;
 	align-items: center;
-	background-image: url('https://www.dropbox.com/s/0dj83d1dehsett9/adrian-infernus-GLf7bAwCdYg-unsplash.jpg?raw=1');
+	background-color: #4d85ce;
 	/* box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.5); */
 }
 
@@ -58,6 +58,15 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+}
+
+.forecast {
+	margin-top: 1em;
+	margin-left: 1em;
+	margin-right: 1em;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
 }
 
 .error {

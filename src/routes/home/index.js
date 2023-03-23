@@ -20,6 +20,7 @@ import { useEffect, useState } from 'preact/hooks';
 import Clock from '../../components/clock';
 import WeatherSecondary from '../../components/WeatherSecondary';
 import Chip from '../../components/Chip';
+import WeekForecast from '../../components/WeekForecast';
 
 const Home = () => {
 	// Persistent state for the component (https://www.youtube.com/watch?v=O6P86uwfdR0)
@@ -33,7 +34,7 @@ const Home = () => {
 	*/
 
 	useEffect(() => {
-		const weatherPromise = fetch('');	
+		const weatherPromise = fetch('http://api.weatherstack.com/current?access_key=d429be32eba4f443a5cd38ceaad625e4&query=London');	
 
 		weatherPromise.then((res) => {
 			if (!res.ok) {
@@ -90,7 +91,6 @@ const Home = () => {
 
 									{/* Checks if `weather` variable isn't null before indexing it */}
 									{weather && weather['current'] && weather['current']['temperature']}°C
-									{/* 12°C */}
 								</div>
 
 								<div class={style.muted}> 
@@ -99,7 +99,6 @@ const Home = () => {
 
 								<div class={style.muted}>
 									{weather && weather['current'] && weather['current']['weather_descriptions']}
-									{/* Overcast */}
 								</div>
 							</>
 							}
@@ -111,7 +110,6 @@ const Home = () => {
 						
 					</div>
 				</div >	
-
 
 			<div class={style.secondary}>
 				<WeatherSecondary title="UVI" 
@@ -137,6 +135,13 @@ const Home = () => {
 					data={weather && weather['current'] && weather['current']['visibility'] + " km"}
 					tagline={weather && weather['current'] && weather['current']['visibility'] > 5 ? "Clear" : "Poor Visibility"} //ternary operator to see if visibility is greater than 5km
 					icon="https://www.dropbox.com/s/vzn863txa01fe3u/visibility-svgrepo-com.svg?raw=1" />
+			</div>
+
+			<div class={style.forecast}>
+				<WeekForecast />
+				<WeekForecast />
+				<WeekForecast />
+				<WeekForecast />
 			</div>
 		</main>
 	);
