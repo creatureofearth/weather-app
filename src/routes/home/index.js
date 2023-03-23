@@ -34,7 +34,7 @@ const Home = () => {
 	*/
 
 	useEffect(() => {
-		const weatherPromise = fetch('');	
+		const weatherPromise = fetch('http://api.weatherstack.com/current?access_key=d429be32eba4f443a5cd38ceaad625e4&query=London');	
 
 		weatherPromise.then((res) => {
 			if (!res.ok) {
@@ -66,6 +66,30 @@ const Home = () => {
 		  }
 		}
 		return '';
+	}
+	  
+	function geticon(weather) {
+		 
+		const weatherDescriptions = weather?.current?.weather_descriptions;
+		if (weatherDescriptions) {
+		  if (weatherDescriptions.includes("Clear")) { // if weather description includes "Clear" (e.g. "Clear Sky")
+			return "https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1" ;
+		  } 
+		  else if (weatherDescriptions.includes("Cloudy") || weatherDescriptions.includes("Overcast")) { // if weather description includes "Cloudy" or "Overcast"
+			return "https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1" ;
+		  } 
+		  else if (weatherDescriptions.some(desc => desc.includes("Rain"))) { // if weather description includes "Rain" (e.g. "Light Rain")
+			return "https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1" ;
+		  }
+		  else if (weatherDescriptions.some(desc => desc.includes("Snow"))) { // if weather description includes "Snow" (e.g. "Light Snow")
+			return "https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1" ;
+		  } 
+		  else if (weatherDescriptions.includes("Thunderstorm")) { // if weather description includes "Thunderstorm"
+			return "https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1" ;
+		  }
+		}
+		return '';
+		
 	}
 	  
 
@@ -104,7 +128,7 @@ const Home = () => {
 							}
 						</div>
 						<div class={style.weatherRight}>
-							<img class={style.icon} src="https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1"></img>
+							<img class={style.icon}src = {`${geticon(weather)}`} ></img>
 							<Chip text={<Clock />} />
 						</div>
 						
