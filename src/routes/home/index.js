@@ -34,7 +34,7 @@ const Home = () => {
 	*/
 
 	useEffect(() => {
-		const weatherPromise = fetch('http://api.weatherstack.com/current?access_key=d429be32eba4f443a5cd38ceaad625e4&query=London');	
+		const weatherPromise = fetch('');	
 
 		weatherPromise.then((res) => {
 			if (!res.ok) {
@@ -138,6 +138,10 @@ const Home = () => {
 			</div>
 
 			<div class={style.forecast}>
+				<WeekForecast />
+				<WeekForecast />
+				<WeekForecast />
+				<WeekForecast />
 				<WeekForecast />
 				<WeekForecast />
 				<WeekForecast />
