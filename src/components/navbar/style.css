@@ -5,7 +5,7 @@
     justify-content: space-around;
 
     /* forces the navbar to override the map */
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     max-width: 450px;
