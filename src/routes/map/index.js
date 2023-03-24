@@ -1,6 +1,8 @@
 import { h, Component } from 'preact';
-import { useEffect, useRef } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import style from './style.css';
+import Button from '../../components/Button';
+let id = 0;
 
 const Map = () => {
   const mapRef = useRef();
@@ -32,11 +34,29 @@ const Map = () => {
     );
   });
 
+  const processLocation = (e) => {
+    e.stopImmediatePropagation();
+    const map = mapRef.current;
+    const origin = map.querySelector('#mapbox-directions-origin-input').querySelector('input').value;
+    const destination = map.querySelector('#mapbox-directions-destination-input').querySelector('input').value;
+
+    sessionStorage.setItem(id, JSON.stringify({
+      'origin': origin,
+      'destination': destination
+    }));
+    id += 1;
+  }
+
   return (
     <div>
+      <div class={style.actions}>
+        <button onClick={processLocation}>
+          <img class={style.icon} src="https://www.dropbox.com/s/7yf0fho18o3ofpm/bookmark-svgrepo-com%281%29.svg?raw=1"/>Bookmark
+        </button>
+      </div>
       <div ref={mapRef} // reference to the DOM element
       style={{ position: 'absolute', top: 0, bottom: 50, width: '450px' }} // style the map container
-   />
+      />
     </div>
   );
 };

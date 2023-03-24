@@ -1,0 +1,60 @@
+.container {
+    background-color: rgb(43, 40, 49);
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em;
+    color: #CAC4D0;
+    border-radius: 1em;
+    transition: all, 0.1s
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.container:hover {
+    background-color: rgb(49, 45, 58)
+}
+
+.title {
+    font-size: 1.25em;
+    color: #E6E1E5;
+}
+
+button {
+    background-color: transparent;
+    outline: 1px solid #CAC4D0;
+    border-radius: 1em;
+    padding: 0.75em;
+    color: #E6E1E5;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    width: min-content;
+    gap: 10px;
+    transition: all 0.1s;
+    z-index: 5;
+    border: none;
+    font: inherit;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #4A4458;
+    color: #E7DDF9;
+    cursor: pointer;
+}
+
+.icon {
+    width: 1em;
+    filter: brightness(0) saturate(100%) invert(71%) sepia(68%) saturate(72%) hue-rotate(217deg) brightness(111%) contrast(95%);
+}
+
