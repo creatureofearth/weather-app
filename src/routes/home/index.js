@@ -17,7 +17,7 @@ import Clock from '../../components/clock';
 import WeatherSecondary from '../../components/WeatherSecondary';
 import Chip from '../../components/Chip';
 import WeekForecast from '../../components/WeekForecast';
-import { capitalise, getStyleClass } from '../../helper';
+import { capitalise, getStyleClass, getIcon } from '../../helper';
 
 const Home = () => {
 	// Persistent state for the component (https://www.youtube.com/watch?v=O6P86uwfdR0)
@@ -80,7 +80,7 @@ const Home = () => {
 						}
 					</div>
 					<div class={style.weatherRight}>
-						<img class={style.icon} src={getStyleIcon(weather)}></img>
+						<img class={style.icon} src={getIcon(weather && weather['current'] && weather['current']['weather'][0]['main'])}></img>
 						<Chip text={<Clock />} />
 					</div>
 					
@@ -118,7 +118,7 @@ const Home = () => {
 					weather && weather['daily'] && weather['daily'].map((day, index) => {
 						if (index != 0) {
 							let dt = new Date(day.dt * 1000);
-							return <WeekForecast day={weekdays[dt.getDay()]} temp={Math.floor(day['temp']['max']) + " °C"} description={capitalise(day['weather'][0]['description'])} />
+							return <WeekForecast icon={getIcon(weather['daily'][index]['weather'][0]['main'])} day={weekdays[dt.getDay()]} temp={Math.floor(day['temp']['max']) + " °C"} description={capitalise(day['weather'][0]['description'])} />
 						}
 					})
 				}

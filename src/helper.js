@@ -12,23 +12,53 @@ export function capitalise(input) {
     eg. showing an image of rain when the weather is rainy.
 */
 export function getStyleClass(weather) {
-    const weatherDescriptions = weather?.current?.weather_descriptions;
-    if (weatherDescriptions) {
-      if (weatherDescriptions.includes("Clear")) { // if weather description includes "Clear" (e.g. "Clear Sky")
-        return style.sunny;
+    if (weather) {
+      if (weather == "Clear") { // if weather description includes "Clear" (e.g. "Clear Sky")
+        return "style.sunny";
       } 
-      else if (weatherDescriptions.includes("Cloudy") || weatherDescriptions.includes("Overcast")) { // if weather description includes "Cloudy" or "Overcast"
-        return style.cloudy;
+      else if (weather == "Clouds") { // if weather description includes "Cloudy" or "Overcast"
+        return "style.cloudy";
       } 
-      else if (weatherDescriptions.some(desc => desc.includes("Rain"))) { // if weather description includes "Rain" (e.g. "Light Rain")
-        return style.rainy;
+      else if (weather == "Rain" || weather == "Drizzle") { // if weather description includes "Rain" (e.g. "Light Rain")
+        return "style.rainy";
       }
-      else if (weatherDescriptions.some(desc => desc.includes("Snow"))) { // if weather description includes "Snow" (e.g. "Light Snow")
-        return style.snowy;
+      else if (weather == "Snow") { // if weather description includes "Snow" (e.g. "Light Snow")
+        return "style.snowy";
       } 
-      else if (weatherDescriptions.includes("Thunderstorm")) { // if weather description includes "Thunderstorm"
-        return style.thunderstorm;
+      else if (weather == "Thunderstorm") { // if weather description includes "Thunderstorm"
+        return "style.thunderstorm";
+      }
+      else {
+        return "style.sunny";
       }
     }
     return '';
 }
+
+/* 
+    Matches weather descriptions to icons
+*/
+export function getIcon(weather) {
+    if (weather) {
+      if (weather == "Clear") { // if weather description includes "Clear" (e.g. "Clear Sky")
+        return "https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1";
+      } 
+      else if (weather == "Clouds") { // if weather description includes "Cloudy" or "Overcast"
+        return "https://www.dropbox.com/s/2gy09q6cft9s6ni/clouds-fill-svgrepo-com.svg?raw=1";
+      } 
+      else if (weather == "Rain" || weather == "Drizzle") { // if weather description includes "Rain" (e.g. "Light Rain")
+        return "https://www.dropbox.com/s/g3edx722kgrcbv3/rain-alt-svgrepo-com.svg?raw=1";
+      }
+      else if (weather == "Snow") { // if weather description includes "Snow" (e.g. "Light Snow")
+        return "https://www.dropbox.com/s/vvfb5ziuzuiemfg/snow-svgrepo-com.svg?raw=1";
+      } 
+      else if (weather == "Thunderstorm") { // if weather description includes "Thunderstorm"
+        return "https://www.dropbox.com/s/0iie382rqo7s4t4/thunder-svgrepo-com.svg?raw=1";
+      }
+      else {
+        return "https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1";
+      }
+    }
+    return '';
+}
+
