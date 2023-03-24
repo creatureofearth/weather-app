@@ -80,7 +80,7 @@ const Home = () => {
 						}
 					</div>
 					<div class={style.weatherRight}>
-						<img class={style.icon} src="https://www.dropbox.com/s/nve0zwji4zlhida/weather-2-svgrepo-com.svg?raw=1"></img>
+						<img class={style.icon} src={getStyleIcon(weather)}></img>
 						<Chip text={<Clock />} />
 					</div>
 					

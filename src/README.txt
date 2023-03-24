@@ -11,6 +11,11 @@ For more information on how to use the Preact CLI, please refer to the CLI Readm
 ```bash
 # install dependencies
 npm install
+npm install mapbox-gl
+npm install @mapbox/mapbox-gl-directions
+npm install react-mapbox-gl
+
+
 
 # serve with hot reload at localhost:8080
 npm run dev
